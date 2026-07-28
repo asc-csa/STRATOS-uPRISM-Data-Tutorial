@@ -193,7 +193,7 @@ def available_metric_frames(
     environment_df: pd.DataFrame,
     track_df: pd.DataFrame,
 ) -> dict[str, tuple[pd.DataFrame, str, str]]:
-    """Return only metrics that exist for the selected campaign."""
+    """Return only metrics that exist for the selected year."""
     options: dict[str, tuple[pd.DataFrame, str, str]] = {}
 
     trajectory_metrics = {
@@ -299,13 +299,13 @@ def display_optional_metric(
 st.sidebar.text("🎈🎈🎈🎈🎈🎈🎈🎈🎈🎈🎈")
 st.sidebar.title("CSA Stratos Balloon Tracker")
 st.sidebar.caption(
-    "Select a campaign year first. The remaining controls and datasets adapt "
-    "to that campaign."
+    "Select a year first. The remaining controls and datasets adapt "
+    "to that year."
 )
 
 default_year_index = AVAILABLE_YEARS.index(DEFAULT_YEAR)
 selected_year = st.sidebar.selectbox(
-    "Campaign year",
+    "Selected year",
     options=AVAILABLE_YEARS,
     index=default_year_index,
     format_func=lambda year: get_year_config(year)["label"],
@@ -341,9 +341,9 @@ if images_available:
     )
 else:
     show_images = False
-    st.sidebar.caption("Onboard images: No values found for this campaign.")
+    st.sidebar.caption("Onboard images: No values found for this year.")
 
-with st.sidebar.expander("Campaign dataset availability"):
+with st.sidebar.expander(f"Dataset availability for {selected_year}"):
     availability_rows = []
     for key, label in DATASET_LABELS.items():
         availability_rows.append(
@@ -400,7 +400,7 @@ selected_idx = st.slider(
     key=timeline_key,
     help=(
         "Move the slider to update the map, chart, telemetry, environmental "
-        "values, and available images for the selected campaign."
+        "values, and available images for the selected year."
     ),
 )
 
@@ -636,7 +636,7 @@ with st.expander("Dataset load status"):
         hide_index=True,
     )
 
-    st.markdown("**Configured campaign files**")
+    st.markdown("**Configured files**")
     file_rows = []
     for key, info in configured_files.items():
         file_rows.append(
@@ -659,7 +659,7 @@ with st.expander("Dataset load status"):
 
 with st.expander("Loaded trajectory details"):
     trajectory_info = year_config["csv_files"][source_key]
-    st.write(f"**Campaign:** {selected_year}")
+    st.write(f"**Selected year:** {selected_year}")
     st.write(f"**Trajectory file:** {trajectory_info['filename']}")
     st.write(f"**Rows:** {len(traj_df):,}")
     st.write(f"**Available standardized columns:** {', '.join(traj_df.columns)}")
