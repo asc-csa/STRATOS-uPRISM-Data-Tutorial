@@ -404,7 +404,7 @@ Le projet est conçu comme un complément éducatif à la documentation officiel
 - [Campagnes prises en charge](#fr-campagnes-prises-en-charge)
 - [Structure du projet](#fr-structure-du-projet)
 - [Installation](#fr-installation)
-- [Exécuter les notebooks](#fr-executer-les-notebooks)
+- [Exécuter les bloc-notes](#fr-executer-les-bloc-notes)
 - [Exécuter le tableau de bord Streamlit](#fr-executer-le-tableau-de-bord-streamlit)
 - [Déroulement du tutoriel](#fr-deroulement-du-tutoriel)
 - [Fichiers de sortie générés](#fr-fichiers-de-sortie-generes)
@@ -511,15 +511,15 @@ python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
 
-Le projet utilise des bibliothèques telles que pandas, NumPy, Matplotlib, Plotly, Requests, Pillow, Beautiful Soup, Folium, Streamlit et 'streamlit-folium'.
+Le projet utilise des modules telles que pandas, NumPy, Matplotlib, Plotly, Requests, Pillow, Beautiful Soup, Folium, Streamlit et 'streamlit-folium'.
 
 #### 4. Sélectionnez l’environnement dans VS Code ou Jupyter
 
-Lorsque vous ouvrez un bloc-notes, sélectionnez l’environnement « stratos_tutorial » comme kernel du bloc-notes. Dans VS Code, utilisez **Select Kernel** dans le coin supérieur droit de l’éditeur de bloc-notes.
+Lorsque vous ouvrez un bloc-notes, sélectionnez l’environnement « stratos_tutorial » comme coeur du bloc-notes. Dans VS Code, utilisez **Select Kernel** dans le coin supérieur droit de l’éditeur de bloc-notes.
 
-<a id="fr-executer-les-notebooks"></a>
+<a id="fr-executer-les-bloc-notes"></a>
 
-### Exécuter les notebooks
+### Exécuter les bloc-notes
 
 Ouvrez le bloc-notes de la campagne que vous souhaitez étudier :
 
@@ -535,7 +535,7 @@ Exécutez les cellules de haut en bas. Chaque bloc-notes télécharge ses fichie
 
 Certains fichiers sont désactivés par défaut afin de limiter l’utilisation de la mémoire et le temps d’exécution. Modifiez ces variables dans la cellule de configuration de la campagne avant d’exécuter les cellules de chargement des données.
 
-| Notebook | Variable         | Valeur par défaut | Effet                                                                                                                                 |
+| bloc-note | Variable         | Valeur par défaut | Effet                                                                                                                                 |
 | -------- | ---------------- | :---------------: | ------------------------------------------------------------------------------------------------------------------------------------- |
 | 2022     | `LOAD_ALL_FILES` |      `False`      | Charge tous les tableaux configurés pour 2022 plutôt que l’ensemble par défaut comprenant les données GNSS1, IMU et d’angle de suivi. |
 | 2023     | `LOAD_500_HZ`    |      `False`      | Charge et analyse le très volumineux fichier EF à 500 Hz.                                                                             |
@@ -576,7 +576,7 @@ Le tableau de bord affiche **« Aucune valeur trouvée »** pour les données pr
 
 ### Déroulement du tutoriel
 
-Bien que l’analyse exacte varie selon la campagne, les notebooks suivent le même déroulement général.
+Bien que l’analyse exacte varie selon la campagne, les bloc-notes suivent le même déroulement général.
 
 1. **Configurer la campagne** — définir la date du vol, les chemins du serveur public, les noms de fichiers, les fichiers facultatifs et les seuils de détection des anomalies.
 2. **Charger les fichiers sources** — télécharger les fichiers CSV ou les répertoires d’images sans modifier les observations originales.
@@ -595,7 +595,7 @@ Les DataFrames sources demeurent inchangés à des fins de traçabilité. Le net
 
 ### Fichiers de sortie générés
 
-Lorsque la section d’exportation est exécutée, chaque notebook crée un répertoire propre à l’année dans le répertoire de travail actuel :
+Lorsque la section d’exportation est exécutée, chaque bloc-note crée un répertoire propre à l’année dans le répertoire de travail actuel :
 
 ```text
 tutorial_outputs_2022/
@@ -715,7 +715,7 @@ Exécutez Streamlit à partir de la racine du projet :
 streamlit run app.py
 ```
 
-#### Le notebook utilise le mauvais environnement Python
+#### Le bloc-note utilise le mauvais environnement Python
 
 Dans VS Code, sélectionnez le noyau `stratos_tutorial`. Vérifiez-le à l’aide du code suivant :
 
@@ -724,14 +724,14 @@ import sys
 print(sys.executable)
 ```
 
-#### Une figure Plotly ne s’affiche pas dans le notebook
+#### Une figure Plotly ne s’affiche pas dans le bloc-note
 
-Marquez le notebook comme fiable et confirmez que Plotly et la prise en charge de Jupyter sont installés dans le noyau sélectionné. Dans VS Code, cliquez sur **Trust** lorsque le logiciel vous y invite, puis exécutez de nouveau la cellule de visualisation.
+Marquez le bloc-note comme fiable et confirmez que Plotly et la prise en charge de Jupyter sont installés dans le noyau sélectionné. Dans VS Code, cliquez sur **Trust** lorsque le logiciel vous y invite, puis exécutez de nouveau la cellule de visualisation.
 
-#### Le tableau de bord ou le notebook est lent
+#### Le tableau de bord ou le bloc-note est lent
 
 - laissez la variable `LOAD_500_HZ` de 2023 désactivée, sauf si ce fichier est nécessaire;
-- laissez les fichiers EF facultatifs désactivés lors de la première exécution du notebook de 2025;
+- laissez les fichiers EF facultatifs désactivés lors de la première exécution du bloc-note de 2025;
 - laissez les images prises à bord désactivées dans le tableau de bord jusqu’à ce qu’elles soient nécessaires;
 - attendez la fin du premier téléchargement — Streamlit met les données préparées en cache pour les exécutions ultérieures.
 
@@ -761,7 +761,7 @@ Pour ajouter une autre campagne au tableau de bord et aux tutoriels :
 2. ajoutez une nouvelle entrée à `YEAR_CONFIGS` dans `src/stratos_tracker/config.py`;
 3. définissez les fichiers de la campagne, les modes d’en-tête, les fréquences d’échantillonnage, les sources de trajectoire, les jeux de données facultatifs, les étiquettes des caméras et les événements de vol;
 4. mettez à jour `src/stratos_tracker/data.py` uniquement si le nouveau schéma nécessite des traitements supplémentaires ou de nouveaux champs normalisés;
-5. créez un notebook distinct pour la nouvelle année afin que les problèmes de qualité propres à la campagne demeurent explicites et vérifiables;
+5. créez un bloc-note distinct pour la nouvelle année afin que les problèmes de qualité propres à la campagne demeurent explicites et vérifiables;
 6. mettez à jour le tableau de disponibilité dans ce fichier README.
 
 <a id="fr-documentation-officielle"></a>
