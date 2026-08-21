@@ -1,3 +1,11 @@
+<p align="center">
+  <a href="https://github.com/asc-csa/STRATOS-uPRISM-Data-Tutorial/stargazers"><img src="https://img.shields.io/github/stars/asc-csa/STRATOS-uPRISM-Data-Tutorial" alt="Étoiles du dépôt GitHub"></a>&nbsp;
+  <a href="https://github.com/asc-csa/STRATOS-uPRISM-Data-Tutorial/watchers"><img src="https://img.shields.io/github/watchers/asc-csa/STRATOS-uPRISM-Data-Tutorial" alt="Observateurs du dépôt GitHub"></a>&nbsp;
+  <a href="https://github.com/asc-csa/STRATOS-uPRISM-Data-Tutorial/commits/main"><img src="https://img.shields.io/github/last-commit/asc-csa/STRATOS-uPRISM-Data-Tutorial" alt="Dernier commit sur GitHub"></a>&nbsp;
+  <a href="https://github.com/asc-csa/STRATOS-uPRISM-Data-Tutorial/graphs/contributors"><img src="https://img.shields.io/github/contributors/asc-csa/STRATOS-uPRISM-Data-Tutorial" alt="Contributeurs sur GitHub"></a>&nbsp;
+  <a href="https://twitter.com/intent/follow?screen_name=csa_asc"><img src="https://img.shields.io/twitter/follow/csa_asc?style=social" alt="Suivre l’Agence spatiale canadienne sur X"></a>
+</p>
+
 <a id="language-selection"></a>
 
 # STRATOS uPRISM Open Data Tutorial / Tutoriel sur les données ouvertes STRATOS uPRISM
