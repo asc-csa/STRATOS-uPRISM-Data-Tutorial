@@ -1,4 +1,17 @@
 <p align="center">
+  <img
+    src="./images/stratos.jpg"
+    alt="Stratospheric balloon | Ballon stratosphérique"
+    height="300"
+  >
+  <br>
+  Image credit | Crédit d’image:
+  <a href="https://www.asc-csa.gc.ca/fra/sciences/ballons/a-propos-des-ballons-stratospheriques.asp">
+    ASC-CSA
+  </a>
+</p>
+
+<p align="center">
   <a href="https://github.com/asc-csa/STRATOS-uPRISM-Data-Tutorial/stargazers"><img src="https://img.shields.io/github/stars/asc-csa/STRATOS-uPRISM-Data-Tutorial" alt="Étoiles du dépôt GitHub"></a>&nbsp;
   <a href="https://github.com/asc-csa/STRATOS-uPRISM-Data-Tutorial/watchers"><img src="https://img.shields.io/github/watchers/asc-csa/STRATOS-uPRISM-Data-Tutorial" alt="Observateurs du dépôt GitHub"></a>&nbsp;
   <a href="https://github.com/asc-csa/STRATOS-uPRISM-Data-Tutorial/commits/main"><img src="https://img.shields.io/github/last-commit/asc-csa/STRATOS-uPRISM-Data-Tutorial" alt="Dernier commit sur GitHub"></a>&nbsp;
